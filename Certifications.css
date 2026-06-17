@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('Fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "Ubuntu", Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+	    backdrop-filter: blur(10px);
+}
+
+.wrapper {
+    background-image: url('sfondo2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh; /* Altezza minima per estendere il contenitore a tutta la pagina */
+    padding-top: 60px; /* Spazio per la barra di navigazione */
+    background-color: #f0f0f0;
+	
+
+}
+
+
+.navbar {
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Modifica per spaziare i bottoni */
+    position: fixed;
+    top: 0;
+    left: 0;
+	z-index: 1000; /* Imposta un valore alto per far sì che la barra di navigazione si sovrapponga alle altre carte */
+}
+
+.navbar-title {
+    font-size: 24px;
+
+    
+}
+
+.navbar-as {
+    font-family: 'Roboto', sans-serif;  /* Applica il font Roboto */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-buttons button {
+    margin-right: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav-buttons button:hover {
+    text-decoration: underline;
+}
+
+#projects {
+    width: 100%; /* Occupa tutta la larghezza */
+    padding-top: 60px; /* Per evitare che i progetti si sovrappongano alla barra di navigazione */
+
+}
+
+.cards-aligned {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Distribuisce i progetti in colonne */
+    gap: 20px;
+    padding: 20px; /* Spazio interno per i progetti */
+
+}
+
+.card {
+    width: 100%; /* Imposta la larghezza delle carte al 100% */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+	position: relative;
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+	max-height: 380px;
+
+}
+
+.card-body {
+    padding: 20px;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+
+}
+
+.card-body h2 {
+    margin-bottom: 10px;
+}
+
+.card-body ul {
+    padding-left: 20px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0056b3;
+	background-image: linear-gradient(45deg, #1C3144, #2CACC9); /* Gradienti */
+    padding: 10px 20px;
+    border-radius: 5px;
+	color: black; 
+}

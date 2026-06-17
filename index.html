@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tomas Guardati: Portfolio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="theme.css" rel="stylesheet"/>
+<script>(function(){try{var l=localStorage.getItem('lang');if(l)document.documentElement.setAttribute('data-lang',l);}catch(e){}})();</script>
+</head>
+<body>
+<div aria-hidden="true" class="stars"></div>
+<nav class="navbar">
+<h1 class="navbar-title">Tom<span class="navbar-as">[as]</span></h1>
+<button aria-label="Menu" class="nav-toggle">☰</button>
+<div class="nav-buttons">
+<a href="index.html">Home</a>
+<a href="AboutMe.html"><span class="t-en">About Me</span><span class="t-it">Chi sono</span></a>
+<a href="Certifications.html"><span class="t-en">Certifications</span><span class="t-it">Certificazioni</span></a>
+<a href="projects.html"><span class="t-en">Projects</span><span class="t-it">Progetti</span></a>
+<a href="Softwares.html"><span class="t-en">Software</span><span class="t-it">Software</span></a>
+<a href="CodingLanguages.html"><span class="t-en">Coding Languages</span><span class="t-it">Linguaggi</span></a>
+<span class="lang-switch">
+<button data-set-lang="en" type="button">EN</button>
+<button data-set-lang="it" type="button">IT</button>
+</span>
+</div>
+</nav>
+<main class="hero">
+<div class="hero-photo">
+<img alt="Foto di Tomas Guardati" src="Immagini/ImmagineProfiloCs50.jpeg"/>
+</div>
+<div class="hero-text">
+<h1>Tomas Guardati</h1>
+<p class="hero-tagline">Developer · CS50x · AI &amp; Automation</p>
+<p class="t-en">The first version of this site started as a Week 8
+               project for Harvard's <strong>CS50x</strong> course, which I
+               completed in <strong>2024</strong>.</p>
+<p class="t-it">La prima versione di questo sito nacque come progetto
+               della settimana 8 del corso <strong>CS50x</strong> di Harvard, che
+               ho completato nel <strong>2024</strong>.</p>
+<p class="hero-note t-en">The design has, of course, changed over the years and been updated several times: this is the latest version.</p>
+<p class="hero-note t-it">Il design, ovviamente, è cambiato negli anni  
+ed è stato aggiornato più volte: questa è la versione più recente.</p>
+<div class="hero-buttons">
+<a class="btn btn-primary" href="AboutMe.html">About Me</a>
+<a class="btn" href="projects.html"><span class="t-en">My Projects</span><span class="t-it">I miei progetti</span></a>
+<button class="btn btn-accent" data-open-video="" type="button">
+<span class="t-en">▶ Watch my CS50 video</span><span class="t-it">▶ Guarda il mio video CS50</span>
+</button>
+</div>
+</div>
+</main>
+<!-- CS50 video modal -->
+<div aria-label="Video CS50" aria-modal="true" class="modal" id="video-modal" role="dialog">
+<div class="modal-content">
+<button aria-label="Chiudi" class="modal-close" data-close-video="" type="button">×</button>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" data-src="https://www.youtube.com/embed/0ljiu_oF_mQ" referrerpolicy="strict-origin-when-cross-origin" title="Tomas Guardati CS50 final project video"></iframe>
+<a class="video-fallback" href="https://youtu.be/0ljiu_oF_mQ" rel="noopener" target="_blank">
+<span class="t-en">Watch on YouTube ↗</span><span class="t-it">Guarda su YouTube ↗</span>
+</a>
+</div>
+</div>
+<div class="last-update" data-last-update=""></div>
+<script src="site.js"></script>
+</body>
+</html>

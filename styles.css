@@ -1,0 +1,472 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('Fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "Ubuntu", Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('sfondo2.webp');
+    background-size: cover; /* Adatta l'immagine per coprire l'intero sfondo */
+    background-position: center; /* Posiziona l'immagine al centro dello sfondo */
+    background-repeat: no-repeat; /* Impedisce la ripetizione dell'immagine */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Modificato per iniziare dall'alto */
+    height: 100vh;
+    margin: 0;
+
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    width: 100%;
+    background-color: #000000 !important;
+    color: white;
+    padding: 15px 30px !important; /* Aggiunto padding orizzontale */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Modifica per spaziare i bottoni */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar-title {
+    font-size: 24px;
+
+}
+
+.navbar-as {
+    font-family: 'Roboto', sans-serif; /* Applica il font Roboto */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-buttons {
+    margin-left: auto; /* Allinea i bottoni a destra */
+}
+
+.nav-buttons button {
+    margin-left: 10px; /* Spaziatura tra i bottoni */
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav-buttons button:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 180px;
+}
+
+.description {
+    flex: 1;
+    max-width: 500px; /* Imposta una larghezza massima per la descrizione */
+}
+
+.description-buttons-wrapper {
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.0); /* in caso se la si vuole mettere l ultimo valore a 0.1 */
+    margin-top: 0px; /* Aggiunto margine superiore per separare l'immagine */
+    margin-bottom: 25px;
+}
+
+
+.description h1 {
+    margin-bottom: 20px; /* Aggiunto margine inferiore per separare il titolo dal paragrafo */
+    color: white;
+    /* font-family: 'Roboto', sans-serif; /* Applica il font Roboto */
+}
+
+.description p {
+    margin: 0px; /* Rimuove il margine predefinito per il paragrafo */
+    color: white;
+    line-height: 1.6; /* Aggiunto */
+}
+
+.buttons {
+    margin-top: 30px; /* Ridotto il margine superiore per separare i bottoni dalla descrizione */
+
+}
+
+.buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-decoration: underline;
+    background-color: rgb(180, 240, 255, 0.6);
+}
+
+.buttons button.my-project {
+    background-color: #808080; /* Colore scuro ispirato alla galassia */
+    background-image: linear-gradient(45deg, #1C3144, #2CACC9); /* Gradienti */
+    color: white;
+
+}
+
+.buttons button.about-me {
+    background-color: #2CACC9; /* Colore chiaro ispirato alla galassia */
+    background-image: linear-gradient(45deg, #2CACC9, #FFD500); /* Gradienti */
+    color: white;
+}
+
+.buttons button:hover {
+    background-color: #0056b3; /* Cambia colore al passaggio del mouse */
+    background-image: linear-gradient(45deg, #1C3144, #2CACC9); /* Gradienti */
+
+}
+
+.photo {
+    flex: 1;
+    margin: 20px; /* Aggiungi un margine esterno per aumentare lo spazio tra l'immagine e il bordo */
+    margin-bottom: 40px;
+}
+
+.photo img {
+    max-width: 100%;
+    max-height: 250px; /* Imposta l'altezza massima dell'immagine */
+    border-radius: 10px;
+    margin-top: 0px;
+
+}
+
+/* Additional Styles */
+.content-wrapper {
+    display: grid;
+    min-height: 60vh;
+    align-items: center;
+}
+
+.track-name { word-wrap: break-word; }
+
+.music-player {
+    height: 70%;
+    padding-top: 30px; padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.music-details {
+    display: flex;
+    padding-top: 25px; padding-bottom: 25px;
+    align-items: center; justify-content: center;
+    border-radius: 10px;
+    background-color: #ffd500;
+    margin-top: 25px;
+}
+
+.playpause-track,
+.prev-track,
+.next-track {
+    padding: 25px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    color: black;
+}
+
+.playpause-track:hover,
+.prev-track:hover,
+.next-track:hover {
+    opacity: 1.0;
+}
+
+.slider-container {
+    width: 85%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seek_slider,
+.volume_slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: black;
+    opacity: 0.8;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.seek_slider::-webkit-slider-thumb,
+.volume_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: black;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.seek_slider::-moz-range-thumb,
+.volume_slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: black;
+    cursor: pointer;
+    border-radius: 80%;
+}
+
+.seek_slider:hover,
+.volume_slider:hover {
+  opacity: 1.0;
+}
+
+.seek_slider {
+  width: 60%;
+  border-radius: 2px;
+}
+
+.volume_slider {
+  width: 30%;
+  border-radius: 2px;
+}
+
+.current-time,
+.total-duration {
+    padding: 10px;
+}
+
+i.fa-volume-down,
+i.fa-volume-up {
+  padding: 10px;
+}
+
+i.fa-play-circle,
+i.fa-pause-circle,
+i.fa-step-forward,
+i.fa-step-backward {
+  cursor: pointer;
+}
+
+div.music-details div.track-art {
+    margin: 25px;
+    height: 250px;
+    width: 250px;
+    background-image: url("");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10%;
+}
+
+div.card div.card-body, div.cards-aligned {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+.page-background-boxes {
+    background-color: #001524;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='228' height='228' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%231d1e23' fill-opacity='0.43'%3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='0.43'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.text-yellow {
+    color: #ffd500;
+}
+
+.bg-yellow{
+    background-color: #ffd500;
+}
+
+#fingerguns-img {
+    margin: auto;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-position: 0 0;
+    background-color: transparent;
+}
+
+.gradient-carousel {
+    position: relative;
+    display: inline-block;
+}
+.gradient-carousel:after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    display: inline-block;
+    background: linear-gradient(to top, rgba(0,0,0,.90) 5%, rgba(0,0,0,0) 100%); /* W3C */
+
+}
+
+#about-me-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-position: 0 0;
+    background-color: transparent;
+}
+
+.card {
+    overflow: hidden;
+}
+
+img.img-fit-crop {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+    object-position: 0 0;
+    transition: transform 0.3s;
+    transition-timing-function: ease-out;
+    transition-delay: 0.08s;
+    border-radius: 2px;
+}
+
+img.img-fit-crop:hover {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+    object-position: 0 0;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2px;
+}
+
+video {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 2px;
+    transition: transform 0.3s;
+    transition-timing-function: ease-out;
+    transition-delay: 0.08s;
+}
+
+video:hover {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 2px;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.gradient-text-yellow {
+    background-color: yellow;
+    background-image: linear-gradient(45deg, #ffd500, #e63946);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.gradient-text-blue {
+    background-color: blue;
+    background-image: linear-gradient(45deg, #1C3144, #2CACC9);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+h1 {
+    font-family: "Press Start 2P", Georgia;
+}
+
+.about-hello-world {
+    font-family: "Ubuntu Mono", Georgia;
+}
+
+p {
+    font-family: "Ubuntu", Verdana;
+    border-left: 1px;
+    border-left-color: #6c757d;
+    border-left-style: solid;
+    border-width: thin;
+    padding-inline: 10px;
+}
+
+p.letter-big::first-letter {
+    font-family: "Press Start 2P", Georgia;
+    background-color: blue;
+    background-image: linear-gradient(45deg, #1C3144, #2CACC9);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Modificato per iniziare dall'alto */
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Modificato per allineare a sinistra */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+#projects {
+    width: 100%; /* Occupa tutta la larghezza */
+    padding-top: 60px; /* Per evitare che i progetti si sovrappongano alla barra di navigazione */
+}
+
+.cards-aligned {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Distribuisce i progetti in colonne */
+    gap: 20px;
+    padding: 20px; /* Spazio interno per i progetti */
+}
+
+

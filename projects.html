@@ -1,0 +1,635 @@
+\<!DOCTYPE html>
+
+<html data-lang="en" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pagina dei Progetti </title>
+<link href="StyleProjects.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&amp;family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="theme.css" rel="stylesheet"/>
+<script>(function(){try{var l=localStorage.getItem('lang');if(l)document.documentElement.setAttribute('data-lang',l);}catch(e){}})();</script>
+<style>.wrapper{background:transparent!important;background-color:transparent!important}#projects{padding-top:84px}</style>
+</head>
+<body>
+<div aria-hidden="true" class="stars"></div>
+<div class="wrapper">
+<nav class="navbar">
+<h1 class="navbar-title">Tom<span class="navbar-as">[as]</span></h1>
+<button aria-label="Menu" class="nav-toggle">☰</button>
+<div class="nav-buttons">
+<a href="index.html">Home</a>
+<a href="AboutMe.html"><span class="t-en">About Me</span><span class="t-it">Chi sono</span></a>
+<a href="Certifications.html"><span class="t-en">Certifications</span><span class="t-it">Certificazioni</span></a>
+<a href="projects.html"><span class="t-en">Projects</span><span class="t-it">Progetti</span></a>
+<a href="Softwares.html"><span class="t-en">Software</span><span class="t-it">Software</span></a>
+<a href="CodingLanguages.html"><span class="t-en">Coding Languages</span><span class="t-it">Linguaggi</span></a>
+<span class="lang-switch"><button data-set-lang="en" type="button">EN</button><button data-set-lang="it" type="button">IT</button></span>
+</div>
+</nav>
+<div id="projects">
+<!-- ===== Featured 2026 — Certify (Completed) + TMS LAB (WIP) ===== -->
+<div class="cards-aligned">
+<div class="card">
+<a href="https://certify-red.vercel.app/" rel="noopener" target="_blank">
+<div class="image-container">
+<img alt="Certify — Skilljar certificate redesign web app" src="Immagini/Certify/cover.png"/>
+<div class="overlay-text st-done">Completed</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2026 </h3>
+<h2>Certify</h2>
+<p>Premium, verifiable course certificates regenerated from any Skilljar credential. A user pastes an official validation URL; Certify verifies it in real time, then regenerates a print-ready, dynamically themed PDF with a custom QR code, no database and zero forgery surface. Built end-to-end with Claude Code. <strong>Stack:</strong> Next.js (App Router), React, TypeScript, Tailwind CSS, Cheerio, html2canvas, jsPDF, Vercel.</p>
+<h3>Technical Highlights:</h3>
+<ul>
+<li class="t-en">Credential validation in a server-side `/api/verify` route that is SSRF-safe, using Cheerio to scrape the live Skilljar DOM and bypass CORS to extract trusted metadata.</li><li class="t-it">SSRF-safe credential validation in a server-side /api/verify route, scraping the live Skilljar DOM with Cheerio to bypass CORS and extract trusted metadata.</li>
+<li>Defeated an html2canvas kerning conflict with Next.js-optimized fonts by injecting CDN fonts into the render clone before rasterization, for high-fidelity PDF export.</li>
+<li class="t-en">Dynamic per-course theming for 18+ courses via CSS variables, plus local on-the-fly QR-code generation.</li><li class="t-it">Dynamic per-course theming for 18+ courses via CSS variables, plus local on-the-fly QR-code generation.</li>
+<li class="t-en">Fully server-rendered and stateless on Vercel, with a strict dark-minimalist, high-contrast design system.</li><li class="t-it">Fully server-rendered and stateless on Vercel, with a strict dark-minimalist, high-contrast design system.</li>
+</ul>
+<button class="see-more" onclick="window.open('https://certify-red.vercel.app/','_blank')">Visit Live Site</button>
+</div>
+</div>
+<div class="card">
+<a href="https://tomasdev69.github.io/TMS_LAB_V2/" rel="noopener" target="_blank">
+<div class="image-container">
+<img alt="TMS LAB — video production dashboard" src="Immagini/TMS_LAB/dashboard.png"/>
+<div class="overlay-text st-wip">Work in Progress</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2025/2026 </h3>
+<h2>TMS LAB: Web Dashboard</h2>
+<p>A YouTube-style command center that turns raw video ideas into shipped productions. Team members sign in by profile, capture ideas, and drive each one through a six-stage production pipeline (script, audio, video, music, SFX, final cut) tracked by a weighted progress bar, alongside inspiration tooling, a live script analyzer, an editors' asset hub and a PIN-gated finance dashboard. <strong>Stack:</strong> Vanilla JS (ES Modules), Tailwind CSS (CDN), Chart.js, Google Apps Script + Drive backend, GitHub Pages.</p>
+<h3>Highlights:</h3>
+<ul>
+<li class="t-en">Multi-stage idea-to-production pipeline with task-specific progress weighting, assignee claiming, and team performance analytics.</li><li class="t-it">Multi-stage idea-to-production pipeline with per-task progress weighting, assignee claiming and team performance analytics.</li>
+<li>Inspiration engine that fetches YouTube channel/video data through fallback CORS proxies and flags growing/stable/declining trends.</li>
+<li>Cloud sync to a user-configured Google Apps Script + Drive JSON backend, with live sync-status indicators and image compression.</li>
+<li>PIN-protected finance dashboard (revenue, payouts, burn-rate) charted with Chart.js.</li>
+</ul>
+<button class="see-more" onclick="window.open('https://tomasdev69.github.io/TMS_LAB_V2/','_blank')">Visit Live Site</button>
+</div>
+</div>
+
+
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 16" src="Immagini/logoblur.png"/>
+<div class="overlay-text st-wip">Work in Progress</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2025/2026 </h3>
+<h2>DRPCRDS</h2>
+<p class="t-en">This secret brand was initially conceived as a creative experiment and has experienced rapid growth during its maturity period. Over time, I realized the limitations and risks associated with its birth, due to its sudden growth and the need to focus on orders, website, and product rather than the research phase. Today, I am restructuring the project with a more solid and targeted business model. It remains an extremely formative experience, with concrete results that have strengthened my vision for the future.</p><p class="t-it">Questo brand segreto è nato inizialmente come un esperimento creativo e ha registrato una crescita molto rapida durante il periodo della maturità. Con il tempo mi sono reso conto dei limiti e dei rischi legati alla sua nascita, dovuti alla crescita improvvisa e alla necessità di concentrarmi su ordini, sito e prodotto più che sulla fase di ricerca. Oggi sto ristrutturando il progetto con un business model più solido e mirato. Rimane comunque un’esperienza estremamente formativa, con risultati concreti che hanno rafforzato la mia visione per il futuro.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Brand Building from Scratch, Marketing and Creative Direction. </li>
+<li>Graphic Design for Physical Products, Brand Visual Identity and Packaging Design.</li>
+<li>E-commerce Management, Product Listing Optimization, Pricing Strategy and Customer Funnel Design.</li>
+<li>Order Fulfillment Management, Packaging &amp; Protection Standards and Returns &amp; Dispute Handling.</li>
+<li>Copyright &amp; Fair Use Awareness, Risk Management and Business Model Evaluation.</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503e.html">
+<div class="image-container">
+<img alt="Project 15" src="Immagini/Anomaly/Copertina.jpeg"/>
+<div class="overlay-text st-planned">Planned for 2026</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2026 </h3>
+<h2>Anomaly Brand</h2>
+<p class="t-en">In the time I often found myself appreciating a very particular aesthetic style, especially when worn by people with athletic, lean bodies or sports bikers. It's a style in which I recognize myself very much. My girlfriend, some time ago, showed me as well some tattoos related to this aesthetics and, for fun, she had fake ones made on my neck and hands.
+
+On several occasions and events many people have asked me if they were real and, in case, where they could get them done. This experience made me reflect and inspired me to develop a new brand in Italy: a project that combines this aesthetics with original designs, bringing my ideas even to unconventional supports, such as custom motorcycle fairings.</p><p class="t-it">Nel tempo mi sono spesso ritrovato ad apprezzare uno stile estetico molto particolare, soprattutto quando indossato da persone con fisici atletici, lean o da biker sportivi. È uno stile in cui mi riconosco molto. La mia ragazza, tempo fa, mi ha mostrato anche alcuni tatuaggi riconducibili a questa estetica e, per gioco, me ne ha realizzati di finti su collo e mani.
+
+In diverse occasioni ed eventi molte persone mi hanno chiesto se fossero reali e, nel caso, dove potessero farseli. Questo riscontro mi ha fatto riflettere e mi ha ispirato a sviluppare un nuovo brand in Italia: un progetto che unisca questa estetica a design originali, portando le mie idee anche su supporti non convenzionali, come le carene custom di moto sportive.</p>
+<h3>Nicchie Mirate:</h3>
+<ul>
+<li>Streetwear dark / underground</li>
+<li>Tattoo culture</li>
+<li>Gym / Fitness aesthetic</li>
+<li>Biker sportivi &amp; Carene moto custom</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 15" src="Immagini/Dashcam/Image2.jpg"/>
+<div class="overlay-text st-wip">In Progress 2026</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2026/2027 </h3>
+<h2>Custom DePIN Dashcam</h2>
+<p class="t-en">The dashcam project draws inspiration from Hivemapper. Since I discovered the DePIN projects, like decentralized antenna networks, this approach has always fascinated me. I was looking for a continuous and scalable system, and by analyzing the main competitors in the sector, Hivemapper stood out as one of the most evident references.
+
+At the same time, I identified several structural limitations in their current model: issues that I believe can be addressed and improved through an alternative system that I have developed. The goal is to contribute to a real decentralization of services currently dominated by centralized platforms like Google Maps, shifting more value and control to users.
+
+The theory and conceptual architecture are already defined; the complex part remains: practical implementation and entering a highly competitive sector. The idea is to structure the project progressively, with the objective of launching a startup by the end of 2026.</p><p class="t-it">Il progetto della dashcam prende ispirazione da Hivemapper. Fin da quando ho scoperto i progetti DePIN, come le reti di antenne decentralizzate, questo tipo di approccio mi ha sempre affascinato. Cercavo un sistema continuativo e scalabile e, analizzando i principali competitor del settore, Hivemapper è stato uno dei riferimenti più evidenti.
+
+Allo stesso tempo, ho individuato diversi limiti strutturali nel loro modello attuale: criticità che ritengo possano essere affrontate e migliorate attraverso un sistema alternativo da me elaborato. L’obiettivo è contribuire a una reale decentralizzazione di servizi oggi dominati da piattaforme centralizzate come Google Maps, spostando il valore e il controllo maggiormente a favore degli utenti.
+
+La teoria e l’architettura concettuale sono già definite; resta la parte più complessa: l’implementazione pratica e l’ingresso in un settore altamente competitivo. L’idea è quella di strutturare il progetto in modo progressivo, con l’obiettivo di avviare una startup entro la fine del 2026.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li class="t-en">Too many. Probably this project will be the cornerstone of my career, so in the future I will dedicate a proper section worthy of note to it.</li><li class="t-it">Troppe. Probabilmente questo progetto sarà cardine della mia carriera, quindi in futuro gli dedicherò una sezione apposita degna di nota.</li>
+</ul>
+</div>
+</div>
+
+
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 16" src="Immagini/Jetson/Copertina2.webp"/>
+<div class="overlay-text st-wip">In Progress 2026</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2026 </h3>
+<h2>AI Depin Node JETSON ORIN NANO SUPER (67 TOPS)</h2>
+<p class="t-en">This modified server began as a "100-day challenge" set in a zombie apocalypse horror scenario, with scattered bunkers and procedurally generated themed structures.</p><p class="t-it">This modded server originated as a '100 days challenge' set in a zombie apocalypse horror setting, featuring scattered bunkers and procedurally generated themed structures.</p>
+<h3>Client Requirements::</h3>
+<ul>
+<li class="t-en">Custom modpack development for server theme.</li><li class="t-it">Custom modpack development for server theme.</li>
+<li>Implement bunkers and themed structures based on a procedural generation scheme.</li>
+<li>Integrate zombie survival mechanics.</li>
+<li class="t-en">Setup of server hosting with robust performance.</li><li class="t-it">Setup of server hosting with robust performance.</li>
+<li>Player permissions setup and security measures.</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 15" src="Immagini/surveilance.webp"/>
+<div class="overlay-text st-planned">Planned for 2026</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2026 </h3>
+<h2>Advanced AI Local Surveilance System</h2>
+<p>This project aims to create a realistic world featuring numerous cities, both large and small towns, realistic public transport systems, highways, and a comprehensive campaign.</p>
+<h3>Client Requirements:</h3>
+<ul>
+<li>Creation of a custom modpack</li>
+<li class="t-en">Server Hosting Setup</li><li class="t-it">Setup of server hosting</li>
+<li>Configuration of player permissions</li>
+<li>Integration of custom maps</li>
+<li class="t-en">Implementation of server chunk loader</li><li class="t-it">Implementation of server chunk loader</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 15" src="Immagini/geodnet.jpeg"/>
+</div>
+</a>
+<div class="card-body">
+<h3> 2025 </h3>
+<h2>Geodnet RTK/GNSS Data Mapping</h2>
+<p class="t-en">I like to dirty the world with antennas.</p><p class="t-it">Mi piace Inquinare il mondo con delle antenne.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Technical Knowledge</li>
+<li>Troubleshooting</li>
+<li>Data Management</li>
+<li>Community Management</li>
+<li class="t-en">Server Performance Optimization</li><li class="t-it">Server Performance Optimization</li>
+<li>Cross-Platform Integration</li>
+</ul>
+<button class="see-more t-en" onclick="window.open('Immagini/Capolavoro2025.pdf','_blank')" type="button">Download the Presentation</button><button class="see-more t-it" onclick="window.open('Immagini/Capolavoro2025.pdf','_blank')" type="button">
+							Scarica la Presentazione
+						</button>
+</div>
+</div>
+
+
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 16" src="Immagini/LolloLacustre/Copertina2.webp"/>
+<div class="overlay-text st-wip">In Progress</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2026 </h3>
+<h2>LolloLacustre - The Game</h2>
+<p class="t-en">The idea for this game originated initially after watching Favij's video on Favij The Game. It was a strong source of inspiration, also because recently I often follow Lollo: his content keeps me company while I work and stays often in the background. Over time, I have listened to many of his opinions, and following him for quite some time, it always seemed to me like a genuine person with perspectives where I often find myself.
+
+Initially, I thought of developing a game for him in Unity, but subsequently I evaluated that a more intelligent and strategic choice could be to realize it within Roblox, maintaining however a high level of care and elaboration. Indeed, recently, I have noticed how various games developed on Roblox in that style No, I’m Not a Human, which I found particularly interesting to observe, are receiving much attention and relevant results.</p><p class="t-it">L’idea di questo gioco nasce inizialmente dopo aver visto il video di Favij su Favij The Game. È stata una forte fonte di ispirazione, anche perché ultimamente seguo spesso Lollo: i suoi contenuti mi tengono compagnia mentre lavoro e restano spesso in sottofondo. Col tempo ho ascoltato molte sue opinioni e, seguendolo da parecchio, mi è sempre sembrato una persona genuina e con punti di vista in cui spesso mi ritrovo.
+
+Inizialmente avevo pensato di sviluppare un gioco per lui in Unity, ma successivamente ho valutato che una scelta più intelligente e strategica potesse essere realizzarlo all’interno di Roblox, mantenendo però un livello di cura ed elaborazione elevato. Negli ultimi tempi, infatti, ho notato come diversi giochi sviluppati su Roblox in quello stile No, I’m Not a Human, che ho trovato particolarmente interessante da osservare, stiano ottenendo molta attenzione e risultati rilevanti.</p>
+<h3>Conoscenze Acquisite:</h3>
+<ul>
+<li>Roblox Studio Developement</li>
+<li>LUA (Coding Language)</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 15" src="Immagini/TMS_LAB/Copertina.jpeg"/>
+<div class="overlay-text st-wip">In Progress 2026</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2025/2026 </h3>
+<h2>TMS LAB (Youtube)</h2>
+<p class="t-en">After moving alone during the summer, I decided to dedicate an entire room to my study. It's a space that I want to use to cultivate my passions and dreams even more seriously, just as I did when I was a child, such as creating content on YouTube related to what truly interests me.
+
+Looking to the future, my goal is to gradually transfer my activities within my father's company. I would like to be able to contribute concretely to its revitalization: by taking over, stabilizing the economic situation, and reorganizing the company into something solid and sustainable. I hope to be that person and, above all, to succeed in making him proud.</p><p class="t-it">Dopo essermi trasferito durante l’estate a vivere da solo, ho deciso di dedicare una stanza interamente allo studio. È uno spazio che voglio usare per coltivare in modo ancora più serio le mie passioni e i sogni che porto con me fin da bambino, come la creazione di contenuti su YouTube legati a ciò che mi interessa davvero.
+
+Guardando al futuro, il mio obiettivo è trasferire gradualmente la mia attività all’interno dell’azienda di mio padre. Vorrei poter contribuire concretamente al suo rilancio: subentrando, sistemando la situazione economica e rimodellando l’azienda in qualcosa di solido e sostenibile. Spero di essere io quella persona e, soprattutto, di riuscire a renderlo fiero.</p>
+<h3>Client Requirements:</h3>
+<ul>
+<li>Content Creation</li>
+<li>Video Editing e Visual Storytelling</li>
+<li>Trend Analysis (YouTube / Gaming)</li>
+<li>Personal Branding</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 15" src="Immagini/ps5.jpeg"/>
+</div>
+</a>
+<div class="card-body">
+<h3> 2025 </h3>
+<h2>PS5 Custom Game Covers</h2>
+<p class="t-en">I experimented with Canva, taking inspiration from a custom game dedicated to Chief Keef that I saw on Pinterest. From there, I designed several personalized covers, curating the front, back, and side text. On the back, I inserted descriptive texts that tell the character being represented, their story, and the narrative context. I would like to specify that no copies were sold.</p><p class="t-it">Ho sperimentato con Canva, prendendo ispirazione da un gioco custom dedicato a Chief Keef visto su Pinterest. Da lì ho progettato diverse copertine personalizzate, curando fronte, retro e scritte laterali. Sul retro ho inserito testi descrittivi che raccontano il personaggio rappresentato, la sua storia e il contesto narrativo. Vorrei specificare che nessuna copia è stata venduta. </p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Basic Graphic Design</li>
+<li>Copyright Laws</li>
+</ul>
+</div>
+</div>
+
+
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 16" src="Immagini/pidgy/Fiverr_Review_2.jpg"/>
+</div>
+</a>
+<div class="card-body">
+<h3> 2023 </h3>
+<h2 class="t-en">Pidgy's Custom Server</h2><h2 class="t-it">Pidgy's Custom Server</h2>
+<p class="t-en">This modified server began as a "100-day challenge" set in a zombie apocalypse horror scenario, featuring scattered bunkers and procedurally generated themed structures.</p><p class="t-it">This modded server originated as a '100 days challenge' set in a zombie apocalypse horror setting, featuring scattered bunkers and procedurally generated themed structures.</p>
+<h3>Client Requirements::</h3>
+<ul>
+<li class="t-en">Custom modpack development for server theme.</li><li class="t-it">Custom modpack development for server theme.</li>
+<li>Implement bunkers and themed structures based on a procedural generation scheme.</li>
+<li>Integrate zombie survival mechanics.</li>
+<li class="t-en">Server hosting setup with strong performance.</li><li class="t-it">Setup of server hosting with robust performance.</li>
+<li>Player permissions setup and security measures.</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="lapierre.html">
+<div class="image-container">
+<img alt="Project 15" src="Immagini/lapierre/5.png"/>
+</div>
+</a>
+<div class="card-body">
+<h3> 2023 </h3>
+<h2 class="t-en">lapierre1 Custom Server</h2><h2 class="t-it">lapierre1 Custom Server</h2>
+<p>This project aims to create a realistic world featuring numerous cities, both large and small towns, realistic public transport systems, highways, and a comprehensive campaign.</p>
+<h3>Client Requirements:</h3>
+<ul>
+<li>Creation of a custom modpack</li>
+<li class="t-en">Server Hosting Setup</li><li class="t-it">Setup of server hosting</li>
+<li>Configuration of player permissions</li>
+<li>Integration of custom maps</li>
+<li class="t-en">Implementation of Server Chunk Loader</li><li class="t-it">Implementation of server chunk loader</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="SborroCraft.html">
+<div class="image-container">
+<img alt="Project 15" src="Immagini/SborroCraft.jpg"/>
+</div>
+</a>
+<div class="card-body">
+<h3> 2022/2023 </h3>
+<h2>SborroCraft</h2>
+<p class="t-en">SborroCraft is a project born as a small Minecraft server among friends, designed to unite those playing on PlayStation (Bedrock) with those on PC (Java), as well as those playing on mobile devices and other platforms. It was set up in less than three days, along with a dedicated Discord server to manage the community. Over time, it became my country's Minecraft server, attracting over 60 players, with a peak of 20 players simultaneously.</p><p class="t-it">SborroCraft è un progetto nato come un piccolo server Minecraft tra amici, concepito per unire coloro che giocavano su PlayStation (Bedrock) a quelli su PC (Java), così come a coloro che giocavano su dispositivi mobili e altre piattaforme. È stato messo su in meno di tre giorni, insieme a un server Discord dedicato per gestire la community. Nel tempo, è diventato il server Minecraft del mio paese, attirando oltre 60 giocatori, con un picco di 20 giocatori contemporaneamente.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Technical Knowledge</li>
+<li>Troubleshooting</li>
+<li>Data Management</li>
+<li>Community Management</li>
+<li class="t-en">Server Performance Optimization</li><li class="t-it">Server Performance Optimization</li>
+<li>Cross-Platform Integration</li>
+</ul>
+<button class="see-more" onclick="window.location.href='https://it.fiverr.com/s/2KK5LBr'">Buy on Fiverr</button>
+</div>
+</div>
+
+
+<div class="card">
+<a href="2124.html">
+<img alt="Project 1" src="Immagini/unica.png"/>
+</a>
+<div class="card-body">
+<h3> 2024 </h3>
+<h2>2124 (Unity)</h2>
+<p class="t-en">This project originated from a contest at the University of Camerino called "Computer Science for Games". This contest required forming a team to develop a video game using the Unity graphics engine.</p><p class="t-it">Questo progetto ha avuto origine da un concorso presso l'Università di Camerino chiamato "Informatica per Gioco". Questo concorso richiedeva la formazione di un team per lo sviluppo di un videogioco utilizzando il motore grafico Unity.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Programming (C#)</li>
+<li>3D Modeling and Animation (Blender)</li>
+<li>Team Leading</li>
+<li>Creativity and Storytelling</li>
+<li>Cutscene Production</li>
+<li>Asset Research</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="Medievale.html">
+<img alt="Project 2" src="Immagini/Medievale/Copertina.png"/>
+</a>
+<div class="card-body">
+<h3> 2023 </h3>
+<h2 class="t-en">Medieval Game (Unity)</h2><h2 class="t-it">Gioco Medievale (Unity)</h2>
+<p class="t-en">This project originated during my third year of high school as a group history assignment. Instead of creating a simple PowerPoint, I decided to add more to our team by creating an interactive experience in a medieval city in 3D. It was my first complete game realized on Unity.</p><p class="t-it">Questo progetto ha avuto origine durante il mio terzo anno di liceo come compito di gruppo di storia. Invece di creare un semplice PowerPoint, ho deciso di dare un tocco in più al nostro team creando un'esperienza interattiva in una città medievale in 3D. È stato il mio primo gioco "completo" realizzato su Unity.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Unity Proficiency</li>
+<li>Level Design</li>
+<li>Problem-solving Skills</li>
+<li>Player Feedback Incorporation</li>
+<li>Player Camera Color Grading</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="MCD.html">
+<div class="image-container">
+<img alt="Project 13" src="Immagini/MCD/mcd1.jpeg"/>
+<div class="overlay-text st-disc">Discontinued</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2024/2025 </h3>
+<h2>MDC (Unity)</h2>
+<p class="t-en">MCD is a multiplayer game under development, where the objective is to survive attacks from a hungry monster.</p><p class="t-it">MCD è un gioco multiplayer in sviluppo, dove l'obiettivo è sopravvivere agli attacchi di un mostro affamato.</p>
+<h3>Missione 1: Zona Cappelletti</h3>
+<p class="t-en">A monster has eaten all the ravioli doughs. Gather chocolate, flour, eggs, sugar, butter, and milk scattered across the map. Repair the oven and the pasta maker, turn on the power, and resolve small knots to cook enough ravioli to feed the monster. Attention: The monster is aggressive and becomes more dangerous over time. Collaboration is crucial for survival.</p><p class="t-it">Un mostro ha mangiato tutte le paste di cappelletti. Raccogli cioccolata, farina, uova, zucchero, burro e latte sparsi per la mappa. Ripara il forno e l'impastatrice, riattiva la corrente e risolvi piccoli intrighi per cucinare abbastanza cappelletti e sfamare il mostro. Attenzione: il mostro è aggressivo e diventa più pericoloso con il tempo. La collaborazione è cruciale per sopravvivere.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Multiplayer Integration</li>
+<li>Environmental Interaction Design </li>
+<li>Quality Assurance (QA) Testing</li>
+<li>Game Mechanics Design</li>
+<li>Performance Optimization</li>
+<li>User Interface (UI) and Experience (UX) Design</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+
+
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 9" src="Immagini/UE5.4/UnrealEngine.png"/>
+<div class="overlay-text st-disc">Discontinued</div>
+</div>
+</a>
+<div class="card-body">
+<h3> 2024 </h3>
+<h2>2124 (Unreal Engine 5.4)</h2>
+<p class="t-en">2124 on Unreal Engine 5.4 is the advanced and still under development version of the original game created for the University of Camerino (UNICAM) using Unity. This ambitious project aims to leverage the advanced graphical and technical capabilities of Unreal Engine 5.4 to offer an even more engaging and refined gaming experience. Currently in development, the goal is to complete a definitive version by the end of 2024, with a subsequent official release of the game.</p><p class="t-it">2124 su Unreal Engine 5.4 è la versione evoluta e ancora in sviluppo del gioco originale creato per l'Università di Camerino (UNICAM) utilizzando Unity. Questo progetto ambizioso mira a sfruttare le avanzate capacità grafiche e tecniche di Unreal Engine 5.4 per offrire un'esperienza di gioco ancora più coinvolgente e raffinata. Attualmente in fase di sviluppo, l'obiettivo è completare una versione definitiva entro la fine del 2024, con una successiva pubblicazione ufficiale del gioco.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>C++ Programming</li>
+<li>Multiplayer Implementation </li>
+<li>Blueprint Scripting</li>
+<li>Advanced Rendering Techniques (Lumen, Nanite)</li>
+<li>Marketing Strategies</li>
+<li class="t-en">Client-Server Synchronization</li><li class="t-it">Client-Server Synchronization</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<img alt="Project 7" src="Immagini/Discord/ds2.png"/>
+</a>
+<div class="card-body">
+<h3> 2021-2026 </h3>
+<h2>Discord Community Hubs</h2>
+<p class="t-en">The Discord server for Project 2124 and SborroCraft are central hubs for their respective communities, offering spaces where members can communicate, collaborate, and share resources. Both servers are designed to be highly efficient and user-friendly thanks to the implementation of various automated bots and integration of diverse features. These tools facilitate communication, event organization, and sharing of updates, making the servers an indispensable reference point for community members.</p><p class="t-it">Il server Discord per il Progetto 2124 e per SborroCraft sono hub centrali per le rispettive comunità, offrendo spazi dove i membri possono comunicare, collaborare e condividere risorse. Entrambi i server sono progettati per essere altamente efficienti e user-friendly grazie all'implementazione di vari bot automatizzati e all'integrazione di diverse funzionalità. Questi strumenti facilitano la comunicazione, l'organizzazione di eventi e la condivisione di aggiornamenti, rendendo i server un punto di riferimento indispensabile per i membri delle comunità.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li class="t-en">Server Management</li><li class="t-it">Server Management</li>
+<li>Bot Development</li>
+<li>Community Engagement</li>
+<li>Event Planning</li>
+<li>Moderation Techniques</li>
+</ul>
+<button class="see-more" onclick="window.location.href='https://it.fiverr.com/s/DBB06d7'">Buy on Fiverr</button>
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<img alt="Project 8" src="Immagini/Derenziflix/Dere.png"/>
+</a>
+<div class="card-body">
+<h3> 2023 </h3>
+<h2>DerenziFlix</h2>
+<p class="t-en">DerenziFlix is a PowerPoint presentation handcrafted to tell a story through a series of slides that mimic the visual layout of Netflix. Each slide is designed to resemble a content selection screen, with cover images, descriptions, and titles that seamlessly integrate with the aesthetics of the streaming service. The project is enhanced by incorporating various 3D models and animations, making the visual experience even more dynamic and engaging.</p><p class="t-it">DerenziFlix è una presentazione PowerPoint realizzata a mano, con l'obiettivo di narrare una storia attraverso una serie di diapositive che imitano il layout visivo di Netflix. Ogni diapositiva è progettata per assomigliare a una schermata di selezione dei contenuti, con immagini di copertina, descrizioni e titoli che si integrano perfettamente con l'estetica del servizio di streaming. Il progetto è arricchito dall'implementazione di vari modelli 3D e animazioni, che rendono l'esperienza visiva ancora più dinamica e coinvolgente.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>User Interface (UI) Design</li>
+<li>Visual Communication</li>
+<li>Color Theory</li>
+<li>Content Structuring</li>
+</ul>
+<button class="see-more dz" onclick="window.location.href='https://it.fiverr.com/s/xXXqQwB'">Buy on Fiverr</button>
+</div>
+</div>
+
+
+<div class="card">
+<a href="503.html">
+<img alt="Project 4" src="Immagini/TeclaSystem/TeclaLogo.png"/>
+</a>
+<div class="card-body">
+<h3> 2024 </h3>
+<h2>TeclaSystem STT</h2>
+<p class="t-en">During an internship at TeclaSystem, I had the opportunity to work on an innovative project in the field of telecommunications. For two weeks, I dedicated myself to developing software that allows extracting audio traces from .xmf containers and converting them into .wav files, then using Microsoft Azure AI's artificial intelligence for automatically transcribing the audio content. The processing process also included changing the bitrate and converting the audio traces to mono.</p><p class="t-it">Durante un'esperienza di alternanza scuola-lavoro presso TeclaSystem, ho avuto l'opportunità di lavorare su un progetto innovativo nel campo delle telecomunicazioni. Per due settimane, mi sono dedicato allo sviluppo di un software che permette di estrarre tracce audio da container .xmf e di convertirle in file .wav, utilizzando poi l'intelligenza artificiale di Microsoft Azure AI per trascrivere automaticamente il contenuto audio. Il processo di elaborazione includeva anche il cambiamento del bitrate e la conversione delle tracce audio in mono.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Programmazione (Python)</li>
+<li>Elaborazione Audio (FFmpeg)</li>
+<li>Machine Learning (Azure AI)</li>
+<li class="t-en">Debugging and troubleshooting</li><li class="t-it">Debugging e risoluzione dei problemi</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<img alt="Project 6" src="Immagini/AfterEffects/CopertinaAE.png"/>
+</a>
+<div class="card-body">
+<h3> 2023/2024 </h3>
+<h2>AE Music Template</h2>
+<p class="t-en">I have developed a modular template for After Effects designed for showcasing music, complete with an audio visualizer, cover art, and small procedural movements to add dynamism to the scene. The main goal was to create a template that is easily implementable and usable by anyone, with the ability to customize the song title and creator, as well as the background with a slight blur and reduced opacity to highlight the foreground elements.</p><p class="t-it">Ho sviluppato un template modulare su After Effects progettato per il showcasing di musica, completo di audio visualizer, copertina, e piccoli movimenti procedurali per aggiungere dinamismo alla scena. L'obiettivo principale era creare un template facilmente implementabile e utilizzabile da chiunque, con la possibilità di personalizzare il titolo della canzone e il creatore, nonché lo sfondo, con un leggero blur e opacità ridotta per mettere in risalto gli elementi in primo piano.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>After Effects Proficiency</li>
+<li>Modular Template Design</li>
+<li>Dynamic Motion Graphics</li>
+<li>Audio Visualization Techniques</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<img alt="Project 5" src="Immagini/Blender/Copertina.png"/>
+</a>
+<div class="card-body">
+<h3> 2023/2024/2025 </h3>
+<h2>Blender</h2>
+<p class="t-en">During my training journey, I devoted a significant period of time to the advanced learning and use of Blender, a leading software for creating 3D content. This project explored a wide range of techniques and tools offered by Blender, with particular attention to animation, modeling, texture management, and optimization for game engines.</p><p class="t-it">Durante il mio percorso formativo, ho dedicato un significativo periodo di tempo all'apprendimento e all'uso avanzato di Blender, un software leader per la creazione di contenuti 3D. Questo progetto ha esplorato un'ampia gamma di tecniche e strumenti offerti da Blender, con un'attenzione particolare all'animazione, alla modellazione, alla gestione delle texture e all'ottimizzazione per i motori di gioco. .</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Modelling and Rigging</li>
+<li>Geometry Nodes and Scene Composition</li>
+<li>Procedural Animations and Materials</li>
+<li>Model Optimization for Game Engines</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+</div>
+
+
+<div class="card">
+<a href="503.html">
+<img alt="Project 10" src="Immagini/Python/Python.jpg"/>
+</a>
+<div class="card-body">
+<h3> 2024/2025 </h3>
+<h2>Python Automatization</h2>
+<p class="t-en">Exploring the potential of Python to automate a wide range of daily activities, from simple ones to more complex ones, I have developed scripts that allow me to save significant time in daily operations, improving efficiency and personal organization.</p><p class="t-it">Esplorando le potenzialità di Python nell'automatizzare una vasta gamma di attività quotidiane, da quelle più semplici a quelle più complesse, ho sviluppato script che mi permettono di risparmiare tempo significativo nelle operazioni giornaliere, migliorando l'efficienza e l'organizzazione personale.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Python Programming</li>
+<li>Automation Scripting </li>
+<li>Task Scheduling</li>
+<li>Scripting for File Management</li>
+<li>Data Processing</li>
+<li>Debugging Scripts</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 11" src="Immagini/AI/AISERVER.jpg"/>
+</div>
+</a>
+<div class="card-body">
+<h3> 2025 </h3>
+<h2 class="t-en">Local AI Server Hosting</h2><h2 class="t-it">Local AI Server Hosting</h2>
+<p class="t-en">This project concerns the local hosting of artificial intelligence (AI) services on an entirely managed infrastructure at home. The objective is to create a secure and performant environment for running AI applications, avoiding dependence on external cloud services. Using dedicated hardware and optimized configurations, the project aims to provide a fast and reliable AI experience, while also ensuring data privacy and full control over processes. This setup is ideal for independently testing, developing, and implementing AI models securely.</p><p class="t-it">Questo progetto riguarda l'hosting locale di servizi di intelligenza artificiale (AI) su un'infrastruttura gestita interamente in casa. L'obiettivo è creare un ambiente sicuro e performante per eseguire applicazioni AI, evitando la dipendenza da servizi cloud esterni. Utilizzando hardware dedicato e configurazioni ottimizzate, il progetto mira a fornire un'esperienza AI rapida e affidabile, garantendo al contempo la privacy dei dati e il controllo completo sui processi. Questo setup è ideale per testare, sviluppare e implementare modelli AI in modo autonomo e sicuro.</p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>Configuration and management of local AI servers</li>
+<li>High-performance hardware management (GPU)</li>
+<li>AI applications setup and testing</li>
+<li>Backup and recovery of data and AI models</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+<div class="card">
+<a href="503.html">
+<div class="image-container">
+<img alt="Project 12" src="Immagini/NAS/Nas2.webp"/>
+</div>
+</a>
+<div class="card-body">
+<h3> 2026 </h3>
+<h2 class="t-en">Raspberry Pi 5 Home Custom Server (NAS)</h2><h2 class="t-it">RPI 5 Home Custom Server (NAS)  </h2>
+<p class="t-en">The project consists of building a custom Network Attached Storage (NAS) connected to the home router via Ethernet, based on Raspberry Pi 5 and configured with OpenMediaVault, housed in a 4-bay 3D-printed case. Each bay hosts a 4 TB disk; RAID 10 configuration is being evaluated for mirroring, reliability, and good performance, with a capacity efficiency of 50% due to the mirroring of purchased disks in pairs. The current bottleneck is the network: the PC operates via Wi-Fi with an effective speed of around 100 Mbit/s (~12 MB/s), while a direct Ethernet connection would allow reaching up to ~800 Mbit/s. Considering the expected usage (file sharing with friends and collaborators), the current performance remains adequate during the initial phase.</p><p class="t-it">Il progetto consiste nella realizzazione di un Network Attached Storage (NAS) custom collegato al router domestico tramite Ethernet, basato su Raspberry Pi 5 e configurato con OpenMediaVault, alloggiato in un case stampato in 3D a 4 baie. Ogni baia ospita un disco da 4 TB; è in valutazione una configurazione RAID 10, scelta per garantire mirroring, affidabilità e buone prestazioni, con un’efficienza di capacità del 50% dovuta al mirroring dei dischi acquistati a coppie. Attualmente il principale collo di bottiglia è la rete: il PC opera via Wi-Fi con una velocità effettiva di circa 100 Mbit/s (~12 MB/s), mentre un collegamento Ethernet diretto permetterebbe di raggiungere fino a ~800 Mbit/s. Considerato l’utilizzo previsto (condivisione di file con amici e collaboratori) le prestazioni attuali risultano comunque adeguate nella fase iniziale. </p>
+<h3>Conoscenze acquisite:</h3>
+<ul>
+<li>NAS configuration and management</li>
+<li class="t-en">Implementation of private proxy server</li><li class="t-it">Private proxy server implementation</li>
+<li>OpenMediaVault</li>
+<li>Cybersecurity and data protection</li>
+<li>Data backup and recovery</li>
+<li class="t-en">Server Performance Optimization</li><li class="t-it">Server performance optimization</li>
+<li>Large-scale data storage management</li>
+</ul>
+<!-- <button class="see-more">See More</button> -->
+</div>
+</div>
+</div>
+<!-- <div class="cards-aligned">
+               
+				<div class="card">
+                    <a href="503.html">
+					<div class="image-container">
+						<img src="Immagini/Chess/ChessConcept.jpeg" alt="Project 14">
+						<div class="overlay-text">In Progress</div>
+					</div>
+                    </a>
+                    <div class="card-body">
+                        <h2>Scacchi Diagonali Multyplayer</h2>
+                        <p>coming soon</p>
+                        <h3>Conoscenze acquisite:</h3>
+                        <ul>
+							<li>coming soon</li>
+                            <li>coming soon </li>
+                            <li>coming soon</li>
+                            <li>coming soon</li>
+							<li>coming soon</li>
+							<li>coming soon</li>
+							
+                        </ul>
+                        <!-- <button class="see-more">See More</button> 
+                    </div>
+                </div>-->
+</div>
+<!--<script src="projects.js"></script>-->
+<div class="last-update" data-last-update=""></div>
+<script src="site.js"></script>
+</body>
+</html>

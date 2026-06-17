@@ -1,0 +1,192 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "Ubuntu", Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    background-image: url('https://wallpapersmug.com/download/3840x2400/8024a0/space-dark-clouds-galaxy-abstract.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh; /* Altezza minima per estendere il contenitore a tutta la pagina */
+    padding-top: 60px; /* Spazio per la barra di navigazione */
+    background-color: #f0f0f0;
+}
+
+
+.navbar {
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Modifica per spaziare i bottoni */
+    position: fixed;
+    top: 0;
+    left: 0;
+	z-index: 1000; /* Imposta un valore alto per far sì che la barra di navigazione si sovrapponga alle altre carte */
+}
+
+.navbar-title {
+    font-size: 24px;
+    
+}
+
+.navbar-as {
+    font-family: 'Roboto', sans-serif; /* Applica il font Roboto */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-buttons button {
+    margin-right: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav-buttons button:hover {
+    text-decoration: underline;
+}
+
+#projects {
+    width: 100%; /* Occupa tutta la larghezza */
+    padding-top: 60px; /* Per evitare che i progetti si sovrappongano alla barra di navigazione */
+
+}
+
+.cards-aligned {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Distribuisce i progetti in colonne */
+    gap: 20px;
+    padding: 20px; /* Spazio interno per i progetti */
+
+}
+
+.card {
+	position: relative; /* Ensure that the card is positioned relative to its normal position */
+    width: 100%; /* Imposta la larghezza delle carte al 100% */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+	position: relative;
+
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+	max-height: 400px;
+
+}
+
+.card-body {
+    padding: 20px;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+
+}
+
+.card-body h2 {
+    margin-bottom: 10px;
+}
+
+.card-body ul {
+    padding-left: 20px;
+}
+
+.card .see-more {
+    position: absolute; /* Position the button absolutely within the relative card */
+    bottom: 10px; /* Adjust as needed for spacing from the bottom */
+    right: 10px; /* Adjust as needed for spacing from the right */
+    padding: 10px 10px; /* Add padding to the button for better appearance */
+    color: white; /* Text color of the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: center; /* Center text in the button */
+    display: inline-block; /* Ensure the link behaves like a button */
+	
+	transition: background-color 0.3s;
+    text-decoration: underline;
+	
+    background-color: #217a99; /* Colore ancora più scuro per l'hover */
+	
+	font-size: 12px; /* Reduce the font size here */
+
+
+}
+
+.card .see-more:hover {
+    background-color: #0056b3; /* Cambia colore al passaggio del mouse */
+    background-image: linear-gradient(45deg, #1C3144, #2CACC9); /* Gradienti */
+}
+
+.card .dz {
+    bottom: 45px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0056b3;
+	background-image: linear-gradient(45deg, #1C3144, #2CACC9); /* Gradienti */
+    padding: 10px 20px;
+    border-radius: 5px;
+	color: black; 
+}
+
+/* Aggiorna il CSS per .slideshow-container */
+.slideshow-container {
+    flex: 1; /* Fai sì che il container occupi tutto lo spazio rimanente */
+    display: flex;
+    justify-content: flex-end; /* Allinea a destra */
+    align-items: center; /* Centra verticalmente il contenuto */
+    padding: 20px; /* Aggiungi spazio intorno alla slideshow */
+    max-width: 50%; /* Limita la larghezza massima per evitare che occupi tutto lo spazio */
+}
+
+/* Stile aggiuntivo per .slideshow, se necessario */
+.slideshow {
+    width: 100%; /* Assicurati che la slideshow occupi tutto lo spazio disponibile */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}

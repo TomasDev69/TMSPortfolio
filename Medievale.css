@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "Ubuntu", Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('sfondo2.webp');
+    background-size: cover; /* Adatta l'immagine per coprire l'intero sfondo */
+    background-position: center; /* Posiziona l'immagine al centro dello sfondo */
+    background-repeat: no-repeat; /* Impedisce la ripetizione dell'immagine */
+    background-attachment: fixed; /* Fissa l'immagine di sfondo mentre si scorre la pagina */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Modificato per iniziare dall'alto */
+    height: 100vh;
+    margin: 0;
+
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    position: fixed; /* Imposta la navbar in posizione fissa */
+    width: 100%;
+    background-color: #000000 !important;
+    color: white;
+    padding: 15px 30px !important; /* Aggiunto padding orizzontale */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Modifica per spaziare i bottoni */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999; /* Assicura che la navbar sia sopra le altre elementi */
+}
+
+.navbar-title {
+    font-size: 24px;
+
+}
+
+.navbar-as {
+    font-family: 'Roboto', sans-serif; /* Applica il font Roboto */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-buttons {
+    margin-left: auto; /* Allinea i bottoni a destra */
+}
+
+.nav-buttons button {
+    margin-left: 10px; /* Spaziatura tra i bottoni */
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav-buttons button:hover {
+    text-decoration: underline;
+}
+
+.gallery {
+    margin-top: 50px; /* Aggiunge margine superiore alla gallery per evitare sovrapposizioni con la navbar */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Crea una griglia a 5 colonne */
+    gap: 10px; /* Spazio tra le immagini */
+    padding: 20px; /* Spazio interno alla galleria */
+}
+
+.image {
+    overflow: hidden; /* Nasconde eventuali overflow */
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* Bordo arrotondato */
+    transition: transform 0.3s ease; /* Effetto di transizione al passaggio del mouse */
+	max-height: 240px;
+}
+
+.image img:hover {
+    transform: scale(1.1); /* Ingrandisce l'immagine al passaggio del mouse */
+}
+
+.card {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Rapporto di aspect ratio per i video 16:9 */
+}
+
+.card video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

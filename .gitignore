@@ -1,0 +1,11 @@
+.tmp.driveupload*
+desktop.ini
+
+# Google Drive sync duplicates of the project — not real source
+Portfolio/
+TMSPortfolio/
+# local-migration artifacts
+*.bak
+*.llmout
+.qa/
+tools/*.log
