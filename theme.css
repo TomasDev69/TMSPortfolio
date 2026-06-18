@@ -25,6 +25,9 @@
     --amber:     #f4b740;
     --blue:      #4d8df6;
     --grey:      #8aa0ad;
+    --purple:    #a78bfa;   /* paused / on hold */
+    --red:       #f0586a;   /* cancelled */
+    --gold:      #ffcf4d;   /* main quest */
 }
 
 /* ---- reset / base ------------------------------------------------- */
@@ -493,6 +496,50 @@ body.page-software .cards-aligned {
 .overlay-text.st-planned::before,
 .overlay-text.st-disc::before { background: rgba(255, 255, 255, 0.55); }
 .overlay-text.st-disc    { background: var(--grey); color: #04222e; }
+.overlay-text.st-paused    { background: var(--purple); color: #1a1033; }
+.overlay-text.st-cancelled { background: var(--red); color: #fff; }
+.overlay-text.st-cancelled::before { background: rgba(255, 255, 255, 0.6); }
+
+/* quest type pill -> mirrors the status pill, anchored top-left */
+.quest-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+.quest-badge.quest-main { background: var(--gold); color: #2a1c00; }
+.quest-badge.quest-side {
+    background: rgba(10, 36, 54, 0.82);
+    color: var(--text-dim);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(2px);
+}
+
+/* in-progress certificate placeholder (no image yet) */
+.cert-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 230px;
+    margin: 12px;
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+    background: rgba(167, 139, 250, 0.06);
+    color: var(--text-dim);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.cert-placeholder-icon { font-size: 2.2rem; }
 
 /* clean header: prominent title + tiny uppercase year, tight spacing */
 .card-body h2 { font-size: 1.25rem; color: #fff; margin: 0 0 8px; line-height: 1.25; }
@@ -514,6 +561,174 @@ body.page-software .card img {
     max-height: 168px;
 }
 body.page-software .card-body h2 { font-size: 1.1rem; margin: 0; }
+
+/* ===================================================================
+   SECTION TITLES + FAVORITES + "TO TRY" (Software / Coding Languages)
+   =================================================================== */
+.section-title {
+    width: 100%;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 8px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--line), transparent);
+}
+.section-title.is-fav { color: var(--gold); }
+.section-title.is-fav::after { background: linear-gradient(90deg, rgba(255,207,77,0.5), transparent); }
+
+/* spacing between the stacked grids on software / languages pages */
+body.page-software .cards-aligned + .section-title { margin-top: 48px; }
+
+/* featured / favorite card: gold glow + star pill */
+.card.fav {
+    border-color: rgba(255, 207, 77, 0.55);
+    box-shadow: 0 0 0 1px rgba(255, 207, 77, 0.25),
+                0 16px 40px rgba(0, 0, 0, 0.5),
+                0 0 34px rgba(255, 207, 77, 0.14);
+}
+.card.fav:hover { border-color: var(--gold); }
+.fav-badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    background: var(--gold);
+    color: #2a1c00;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+/* "curious to try in the future" card: muted + purple pill */
+.card.to-try { opacity: 0.9; border-style: dashed; }
+.card.to-try .card-body h2 { color: var(--purple); }
+.to-try-badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    background: var(--purple);
+    color: #1a1033;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+/* ===================================================================
+   PORTFOLIO GRAPH (About Me) — Obsidian / InfraNodus style
+   =================================================================== */
+.graph-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px clamp(16px, 4vw, 48px) 80px;
+}
+.graph-section h2 {
+    color: #fff;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    margin-bottom: 6px;
+}
+.graph-section p.graph-intro {
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 70ch;
+}
+#portfolio-graph {
+    position: relative;
+    width: 100%;
+    height: 72vh;
+    min-height: 460px;
+    background: radial-gradient(circle at 50% 40%, #02202f 0%, #001524 70%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+#portfolio-graph canvas { display: block; }
+.graph-status {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.graph-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 16px;
+}
+.graph-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+.graph-legend i {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* logo-style card image (brand project logos): whole logo on a light tile */
+.card img.logo-img {
+    object-fit: contain;
+    background: #eef3f6;
+    padding: 28px;
+    max-height: 320px;
+}
+
+/* ===================================================================
+   503 / under-construction page
+   =================================================================== */
+.error-page {
+    min-height: calc(100vh - var(--nav-h) - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.error-box {
+    max-width: 560px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.error-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 14px;
+}
+.error-box h1 { color: #fff; font-size: clamp(1.6rem, 4vw, 2.4rem); margin: 0 0 6px; }
+.error-box p { color: var(--text-dim); line-height: 1.6; margin: 0 0 20px; }
+.error-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
 
 /* ---- footer ------------------------------------------------------- */
 .footer {

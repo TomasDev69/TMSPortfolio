@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" font-family="Ubuntu, Arial, sans-serif">
+  <g text-anchor="middle">
+    <!-- t-shirt mark -->
+    <path d="M400 70 l46 22 56 -18 58 56 -40 42 -22 -16 0 138 -204 0 0 -138 -22 16 -40 -42 58 -56 56 18z"
+          fill="none" stroke="#15293a" stroke-width="9" stroke-linejoin="round"/>
+    <!-- tricolore chest stripes -->
+    <rect x="372" y="150" width="18" height="92" rx="3" fill="#009246"/>
+    <rect x="391" y="150" width="18" height="92" rx="3" fill="#cfd8dd"/>
+    <rect x="410" y="150" width="18" height="92" rx="3" fill="#ce2b37"/>
+    <!-- wordmark -->
+    <text x="400" y="350" font-size="150" font-weight="800" fill="#15293a" letter-spacing="-4">DTF</text>
+    <text x="400" y="408" font-size="60" font-weight="700" fill="#15293a" letter-spacing="18">ITALIA</text>
+    <text x="400" y="448" font-size="23" font-weight="500" fill="#5b7180" letter-spacing="3">DIRECT-TO-FILM · CUSTOM APPAREL</text>
+  </g>
+</svg>
