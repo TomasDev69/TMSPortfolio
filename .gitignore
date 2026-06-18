@@ -7,6 +7,7 @@ TMSPortfolio/
 
 # Internal dev notes (kept local, not published)
 CLAUDE.md
+HANDOFF.md
 
 # local-migration artifacts
 *.bak

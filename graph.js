@@ -98,8 +98,55 @@
             return;
         }
         if (status) status.parentNode.removeChild(status);
+        addCrossLinks(list);
         render({ nodes: list, links: links });
     });
+
+    /* curated interlinks: a software directly to the language(s) it uses,
+       a project to the software/languages it relies on. Resolved by label
+       so they survive renames; missing nodes are simply skipped. */
+    function addCrossLinks(list) {
+        function find(cat, kw) {
+            var exact = kw.charAt(0) === '=';
+            var k = (exact ? kw.slice(1) : kw).toLowerCase();
+            for (var i = 0; i < list.length; i++) {
+                var n = list[i];
+                if (n.cat !== cat) continue;
+                var l = n.label.toLowerCase().trim();
+                if (exact ? l === k : l.indexOf(k) !== -1) return n;
+            }
+            return null;
+        }
+        function join(aCat, aKw, bCat, bKw) {
+            var a = find(aCat, aKw), b = find(bCat, bKw);
+            if (a && b) addLink(a.id, b.id);
+        }
+        var SL = [
+            ['blender', ['python']], ['unity', ['=c#']], ['unreal', ['c++']],
+            ['roblox', ['lua']], ['android studio', ['kotlin', '=java']],
+            ['=visual studio', ['=c#', 'c++']],
+            ['visual studio code', ['javascript', 'python', '=html', 'css']],
+            ['flutterflow', ['dart']], ['streamlit', ['python']], ['ollama', ['python']],
+            ['lm studio', ['python']], ['comfyui', ['python']], ['mysql', ['sql']],
+            ['supabase', ['sql']], ['n8n', ['javascript']], ['shopify', ['javascript']],
+            ['claude code', ['python', 'javascript']]
+        ];
+        SL.forEach(function (p) { p[1].forEach(function (lang) { join('software', p[0], 'language', lang); }); });
+        var PX = [
+            ['certify', 'software', 'claude code'], ['certify', 'language', 'javascript'],
+            ['certify', 'language', '=html'], ['certify', 'language', 'css'],
+            ['tms lab', 'language', 'javascript'], ['tms lab', 'language', '=html'],
+            ['tms lab', 'language', 'css'],
+            ['jetson', 'software', 'ollama'], ['jetson', 'software', 'lm studio'],
+            ['jetson', 'language', 'python'], ['surveil', 'software', 'ollama'],
+            ['surveil', 'software', 'yolo'], ['surveil', 'language', 'python'],
+            ['geodnet', 'language', 'python'], ['unfiltered', 'software', 'shopify'],
+            ['unfiltered', 'software', 'photoshop'], ['unfiltered', 'software', 'picsart'],
+            ['unfiltered', 'software', 'canva'], ['dtf', 'software', 'shopify'],
+            ['dtf', 'software', 'photoshop'], ['python', 'language', 'python']
+        ];
+        PX.forEach(function (p) { join('project', p[0], p[1], p[2]); });
+    }
 
     function render(data) {
         var REL = 2.2;            /* radius = REL * sqrt(val) -> small nodes */

@@ -5,7 +5,7 @@
    >>> LAST_UPDATE: bump this date on every push to GitHub. <<<
    Format: DD/MM/YYYY. Single source of truth for the "Last update" badge.
    ===================================================================== */
-const LAST_UPDATE = "18/06/2026";
+const LAST_UPDATE = "18/06/2026"; // bumped 2026-06-18 22:40 local
 
 /* ---- i18n ---------------------------------------------------------- */
 const LANG_KEY = "lang";
