@@ -4,8 +4,50 @@ desktop.ini
 # Google Drive sync duplicates of the project — not real source
 Portfolio/
 TMSPortfolio/
+
+# Internal dev notes (kept local, not published)
+CLAUDE.md
+
 # local-migration artifacts
 *.bak
 *.llmout
 .qa/
 tools/*.log
+
+# ---- Secrets / environment ----
+.env
+.env.*
+!.env.example
+*.env
+
+# ---- Private keys & certificates ----
+*.key
+*.pem
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa
+id_dsa
+id_ed25519
+
+# ---- Credential files / service accounts ----
+.npmrc
+.yarnrc
+.pypirc
+.netrc
+.htpasswd
+*credentials*.json
+*secret*.json
+service-account*.json
+firebase-adminsdk*.json
+
+# ---- OS / editor junk ----
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.lnk
+.DS_Store
+
+# ---- Dependencies ----
+node_modules/
