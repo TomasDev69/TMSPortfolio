@@ -146,6 +146,31 @@
             ['dtf', 'software', 'photoshop'], ['python', 'language', 'python']
         ];
         PX.forEach(function (p) { join('project', p[0], p[1], p[2]); });
+
+        /* certifications were an isolated cluster: tie each one to the
+           languages / software / projects it actually relates to, so the
+           whole graph interconnects. */
+        var CX = [
+            /* Harvard CS50x -> computer-science fundamentals */
+            ['cs50', 'language', '=c'], ['cs50', 'language', 'python'], ['cs50', 'language', 'sql'],
+            ['cs50', 'language', 'javascript'], ['cs50', 'language', '=html'], ['cs50', 'language', 'css'],
+            ['cs50', 'software', 'visual studio code'], ['cs50', 'project', 'python'],
+            /* IBM AI Fundamentals -> the local-AI stack */
+            ['ibm', 'language', 'python'], ['ibm', 'software', 'ollama'], ['ibm', 'software', 'lm studio'],
+            ['ibm', 'software', 'comfyui'], ['ibm', 'project', 'local ai'], ['ibm', 'project', 'jetson'],
+            ['ibm', 'project', 'surveil'],
+            /* Cisco Cybersecurity -> networking / security tooling */
+            ['cisco', 'software', 'pi hole'], ['cisco', 'software', 'openmediavault'], ['cisco', 'language', 'bash'],
+            /* Anthropic Claude Code 101 / in action -> Claude Code + things built with it */
+            ['101', 'software', 'claude code'], ['101', 'language', 'python'], ['101', 'language', 'javascript'],
+            ['101', 'project', 'certify'], ['101', 'project', 'tms lab'],
+            ['in action', 'software', 'claude code'], ['in action', 'project', 'certify'], ['in action', 'project', 'tms lab'],
+            /* Anthropic Subagents / Agent Skills / API -> Claude Code + Python */
+            ['subagents', 'software', 'claude code'], ['subagents', 'language', 'python'],
+            ['agent skills', 'software', 'claude code'], ['agent skills', 'language', 'python'],
+            ['anthropic api', 'software', 'claude code'], ['anthropic api', 'language', 'python']
+        ];
+        CX.forEach(function (p) { join('cert', p[0], p[1], p[2]); });
     }
 
     function render(data) {
@@ -180,8 +205,13 @@
             .nodeCanvasObjectMode(function () { return 'after'; })
             .nodeCanvasObject(function (node, ctx, scale) {
                 var always = node.cat === 'me' || node.cat === 'hub';
+                var isEntity = node.cat === 'project' || node.cat === 'cert' || node.cat === 'software' || node.cat === 'language';
                 var hovered = hover && (node.id === hover.id || hover.nb[node.id]);
-                if (!always && !hovered) return;          /* labels only for hubs + on hover */
+                /* clean when zoomed out (only hubs labelled); the named entities
+                   reveal their label on a slight zoom-in, skills only when zoomed
+                   close, and hovering always lights up a node + its neighbours. */
+                var show = always || hovered || (isEntity && scale > 1.4) || (node.cat === 'skill' && scale > 3);
+                if (!show) return;
                 var r = REL * Math.sqrt((CAT[node.cat] || {}).val || 1);
                 var fontSize = Math.max((node.cat === 'me' ? 5 : node.cat === 'hub' ? 4 : 3.6) * (12 / Math.max(scale, 4)) + 2, 2.5);
                 ctx.font = '600 ' + fontSize + 'px Ubuntu, Verdana, sans-serif';
