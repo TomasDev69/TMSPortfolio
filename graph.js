@@ -30,7 +30,7 @@
 
     var SOURCES = [
         { url: 'projects.html',        cat: 'project',  hub: 'Projects',       skills: true  },
-        { url: 'Certifications.html',  cat: 'cert',     hub: 'Certifications', skills: true  },
+        { url: 'Certifications.html',  cat: 'cert',     hub: 'Certifications', skills: false },
         { url: 'Softwares.html',       cat: 'software', hub: 'Software',       skills: false },
         { url: 'CodingLanguages.html', cat: 'language', hub: 'Languages',      skills: false }
     ];
@@ -202,29 +202,55 @@
                 Graph.centerAt(n.x, n.y, 600);
                 Graph.zoom(Math.max(Graph.zoom(), 2.5), 600);
             })
-            .nodeCanvasObjectMode(function () { return 'after'; })
+            .nodeCanvasObjectMode(function () { return 'replace'; })
             .nodeCanvasObject(function (node, ctx, scale) {
-                var always = node.cat === 'me' || node.cat === 'hub';
+                var base = CAT[node.cat] || {};
+                var r = REL * Math.sqrt(base.val || 1);
+                var on = lit(node);
+                var color = on ? (base.color || '#8aa0ad') : DIM;
+                var isHub = node.cat === 'me' || node.cat === 'hub';
                 var isEntity = node.cat === 'project' || node.cat === 'cert' || node.cat === 'software' || node.cat === 'language';
                 var hovered = hover && (node.id === hover.id || hover.nb[node.id]);
-                /* clean when zoomed out (only hubs labelled); the named entities
-                   reveal their label on a slight zoom-in, skills only when zoomed
-                   close, and hovering always lights up a node + its neighbours. */
-                var show = always || hovered || (isEntity && scale > 1.4) || (node.cat === 'skill' && scale > 3);
+
+                /* node disc with a soft glow (skipped for the many skill dots to
+                   keep it fast); brighter halo on hubs and on the hovered cluster */
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, r, 0, 2 * Math.PI);
+                if (on && node.cat !== 'skill') { ctx.shadowColor = color; ctx.shadowBlur = isHub ? 16 : (hovered ? 12 : 5); }
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+                if (on && (isHub || hovered)) {
+                    ctx.lineWidth = isHub ? 0.7 : 0.5;
+                    ctx.strokeStyle = isHub ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.5)';
+                    ctx.stroke();
+                }
+
+                /* labels at a CONSTANT on-screen size (px / scale -> graph units).
+                   hubs always; named entities once slightly zoomed or hovered;
+                   skills only when zoomed close or hovered. */
+                var show = isHub || hovered || (isEntity && scale > 0.5) || (node.cat === 'skill' && scale > 1.8);
                 if (!show) return;
-                var r = REL * Math.sqrt((CAT[node.cat] || {}).val || 1);
-                var fontSize = Math.max((node.cat === 'me' ? 5 : node.cat === 'hub' ? 4 : 3.6) * (12 / Math.max(scale, 4)) + 2, 2.5);
-                ctx.font = '600 ' + fontSize + 'px Ubuntu, Verdana, sans-serif';
+                var px = isHub ? (node.cat === 'me' ? 14 : 12) : (node.cat === 'skill' ? 8.5 : 10.5);
+                var fontSize = px / scale;
+                ctx.font = (isHub ? '700 ' : '600 ') + fontSize + 'px Ubuntu, Verdana, sans-serif';
                 var label = node.label;
                 var w = ctx.measureText(label).width;
-                var pad = fontSize * 0.35;
-                var y = node.y + r + fontSize * 0.6;
-                ctx.fillStyle = 'rgba(0,15,24,0.7)';
-                ctx.fillRect(node.x - w / 2 - pad, y - pad * 0.4, w + pad * 2, fontSize + pad * 0.8);
+                var pad = fontSize * 0.4;
+                var y = node.y + r + fontSize * 0.5;
+                ctx.fillStyle = 'rgba(0,12,20,0.72)';
+                ctx.fillRect(node.x - w / 2 - pad, y - pad * 0.3, w + pad * 2, fontSize + pad * 0.7);
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'top';
-                ctx.fillStyle = always ? '#ffffff' : 'rgba(232,242,247,0.92)';
+                ctx.fillStyle = on ? (isHub ? '#ffffff' : 'rgba(235,245,250,0.95)') : 'rgba(160,176,189,0.5)';
                 ctx.fillText(label, node.x, y);
+            })
+            .nodePointerAreaPaint(function (node, color, ctx) {
+                var r = REL * Math.sqrt((CAT[node.cat] || {}).val || 1) + 2;
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, r, 0, 2 * Math.PI);
+                ctx.fill();
             });
 
         /* forces: strong repulsion + long hub links spread the clusters out */
