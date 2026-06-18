@@ -53,8 +53,8 @@
         return clean(en ? en.textContent : h2.textContent);
     }
 
-    addNode('Tomas', 'me', 'Tomas');
-    SOURCES.forEach(function (s) { addNode(s.hub, 'hub', s.hub); addLink('Tomas', s.hub); });
+    addNode('Tomas', 'me', 'Tomas').url = 'index.html';
+    SOURCES.forEach(function (s) { addNode(s.hub, 'hub', s.hub).url = s.url; addLink('Tomas', s.hub); });
 
     Promise.all(SOURCES.map(function (src) {
         return fetch(src.url)
@@ -69,6 +69,8 @@
                     var nodeId = src.cat + ':' + title.toLowerCase();
                     if (nodes[nodeId]) return;
                     addNode(nodeId, src.cat, title);
+                    var cardLink = card.querySelector('a[href]');
+                    if (cardLink) nodes[nodeId].url = cardLink.getAttribute('href');
                     addLink(src.hub, nodeId);
                     if (!src.skills) return;
                     var seen = {};
@@ -199,6 +201,20 @@
             .d3VelocityDecay(0.28)
             .onNodeHover(function (n) { hover = n || null; el.style.cursor = n ? 'pointer' : 'grab'; })
             .onNodeClick(function (n) {
+                /* clicking a node opens what it represents: external links (project
+                   sites, certificate verifications) in a new tab via a synthetic
+                   anchor (popup-blocker safe), internal pages in the same tab.
+                   Skill nodes have no destination, so they just zoom/focus. */
+                if (n.url) {
+                    if (/^https?:/i.test(n.url)) {
+                        var a = document.createElement('a');
+                        a.href = n.url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+                        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                    } else {
+                        window.location.href = n.url;
+                    }
+                    return;
+                }
                 Graph.centerAt(n.x, n.y, 600);
                 Graph.zoom(Math.max(Graph.zoom(), 2.5), 600);
             })
@@ -226,11 +242,14 @@
                     ctx.stroke();
                 }
 
-                /* labels at a CONSTANT on-screen size (px / scale -> graph units).
-                   hubs always; named entities once slightly zoomed or hovered;
-                   skills only when zoomed close or hovered. */
-                var show = isHub || hovered || (isEntity && scale > 0.5) || (node.cat === 'skill' && scale > 1.8);
-                if (!show) return;
+                /* labels at a CONSTANT on-screen size (px / scale -> graph units),
+                   revealed in STAGES by node size: the big white "me" first, then
+                   the hubs, then the larger categories (projects / certs), then the
+                   smaller ones (software / languages), then the tiny skills. Hover
+                   always reveals a node and its neighbours. */
+                var TH = { me: 0, hub: 0.45, project: 0.9, cert: 0.9, software: 1.6, language: 1.6, skill: 2.6 };
+                var th = TH[node.cat]; if (th == null) th = 1;
+                if (!hovered && scale < th) return;
                 var px = isHub ? (node.cat === 'me' ? 14 : 12) : (node.cat === 'skill' ? 8.5 : 10.5);
                 var fontSize = px / scale;
                 ctx.font = (isHub ? '700 ' : '600 ') + fontSize + 'px Ubuntu, Verdana, sans-serif';
