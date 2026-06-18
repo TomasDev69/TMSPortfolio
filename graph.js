@@ -11,9 +11,14 @@
    (Cloudflare Pages or `python -m http.server`), NOT opened via file://.
    Renders with force-graph (loaded from CDN in AboutMe.html).
    ===================================================================== */
-(function () {
+/* Exposed as window.initPortfolioGraph and called only when the user opts in
+   (the section is hidden behind a "work in progress" gate on AboutMe.html), so
+   the canvas is sized against a visible container and never builds while hidden. */
+window.initPortfolioGraph = function () {
+    if (window.__pgStarted) return;
     var el = document.getElementById('portfolio-graph');
     if (!el || typeof ForceGraph !== 'function') return;
+    window.__pgStarted = true;
     var status = el.querySelector('.graph-status');
 
     /* category -> colour (matches theme.css tokens) + relative node value */
@@ -290,4 +295,4 @@
         Graph.onEngineStop(function () { Graph.zoomToFit(600, 60); });
         setTimeout(function () { Graph.zoomToFit(600, 60); }, 2500);
     }
-})();
+};
