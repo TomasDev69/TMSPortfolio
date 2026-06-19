@@ -563,6 +563,57 @@ body.page-software .card img {
 body.page-software .card-body h2 { font-size: 1.1rem; margin: 0; }
 
 /* ===================================================================
+   FILTER BAR (projects / any grid with quest + status pills)
+   Minimal chip row injected by filters.js.
+   =================================================================== */
+.filter-bar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 22px;
+    margin: 0 0 24px;
+    padding: 14px 16px;
+    background: rgba(4, 26, 40, 0.55);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+.filter-group { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.filter-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cyan-soft);
+    margin-right: 2px;
+}
+.filter-chip {
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: color 0.18s, background 0.18s, border-color 0.18s;
+}
+.filter-chip:hover { color: #fff; border-color: var(--cyan); }
+.filter-chip.active {
+    color: #04222e;
+    background: var(--cyan);
+    border-color: var(--cyan);
+}
+.filter-count { margin-left: auto; font-size: 0.8rem; color: var(--text-dim); }
+@media (max-width: 560px) {
+    .filter-bar { gap: 8px 14px; }
+    .filter-count { margin-left: 0; width: 100%; }
+}
+
+/* ===================================================================
    SECTION TITLES + FAVORITES + "TO TRY" (Software / Coding Languages)
    =================================================================== */
 .section-title {
